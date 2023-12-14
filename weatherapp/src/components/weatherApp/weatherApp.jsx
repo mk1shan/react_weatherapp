@@ -15,11 +15,16 @@ const WeatherApp = () => {
     let api_key ="4a0abbc8b904c7ecd6a197e54823c7c2";
    
     const [wicon,setWicon] = useState(cloud_icon);
+    const [errorMessage, setErrorMessage] = useState('');
+    const handleKeyPress = (event) => {
+       
+    };
     const search= async () =>{
 const element =document.getElementsByClassName("cityInput")
 if(element[0].value==="")
 {
-    return 0;
+    setErrorMessage('Please enter a city name.');
+    return;
 }
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
 
